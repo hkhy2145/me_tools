@@ -1,0 +1,16 @@
+from urllib.parse import urlparse, parse_qs
+t=open("urlsql.txt","+r",encoding="utf-8").readlines()
+for i in t:
+    url = i[:-1]#"https://policy.vu.edu.au/download.php?id=1115&version=2&associated"
+    print(url)
+# Parse the URL
+    parsed_url = urlparse(url)
+
+# Extract the query parameters
+    query_parameters = parse_qs(parsed_url.query)
+
+# Print the extracted parameters
+#print("URL Parameters:")
+    for key, values in query_parameters.items():
+    #print(f"{key}: {', '.join(values)}")
+        open("parmter.txt","+a",encoding="utf-8").write("?"+key+"="+"\n")
